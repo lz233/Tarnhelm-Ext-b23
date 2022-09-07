@@ -4,7 +4,7 @@ import java.util.Locale
 
 class Extension : ITarnhelmExt {
     override fun handleLoadString(charSequence: CharSequence): String {
-        return Regex("""(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})""")
+        return Regex(TarnhelmExtHelper.getUrlRegex())
             .replace(charSequence){
                 val okHttpClient = OkHttpClient.Builder().followRedirects(false).build()
                 val request = Request.Builder().url(it.value.replace("http","https")).build()
