@@ -19,6 +19,7 @@ class Extension : ITarnhelmExt {
     }
 
     override fun handleInformation() = arrayOf(
+        "cn.ac.tarnhelm.ext.b23",
         "b23.tv",
         when (Locale.getDefault().language) {
             "zh" -> "通过请求 Bilibili API 转换 b23.tv 链接。"
